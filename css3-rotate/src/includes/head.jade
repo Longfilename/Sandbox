@@ -1,0 +1,77 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+
+title #{title}
+
+meta(name="description", content="[insert page description]")
+meta(name="keywords", content="[insert page keywords]")
+
+//- uncomment blocks below as needed;
+    // mobile device support;
+    meta(name="viewport", content="width=device-width")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+
+    // mobile device images (paths need to be absolute);
+    // iPad (retina)
+    link(rel="apple-touch-icon", 
+         sizes="144x144",
+         href="http://domain.com/img/mobile/icon/144x144.png")
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)",
+         href="http://domain.com/img/mobile/startup/1536x2008.png")
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)",
+         href="http://domain.com/img/mobile/startup/1496x2048.png")
+
+    // iPad (non-retina);
+    link(rel="apple-touch-icon", 
+         sizes="72x72",
+         href="http://domain.com/img/mobile/icon/72x72.png")
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)",
+         href="http://domain.com/img/mobile/startup/768x1004.png")
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)",
+         href="http://domain.com/img/mobile/startup/748x1024.png")
+
+    // iPhone 5 (retina)
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
+         href="http://domain.com/img/mobile/startup/640x1096.png")
+          
+    // iPhone 4 (retina);
+    link(rel="apple-touch-icon",
+         sizes="114x114",
+         href="http://domain.com/img/mobile/icon/114x114.png")
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)",
+         href="http://domain.com/img/mobile/startup/640x920.png")
+
+    // iPhone (non-retina);
+    link(rel="apple-touch-icon",
+         sizes="57x57",
+         href="http://domain.com/img/mobile/icon/57x57.png")
+    link(rel="apple-touch-startup-image",
+         media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)",
+         href="http://domain.com/img/mobile/startup/320x460.png")
+
+    // Open Graph tags for sharing (image should be at least 200x200, and the path needs to be absolute);
+    meta(property="og:image", content="[insert page sharing image url]")
+    meta(property="og:description", content="[insert page description]")
+    meta(property="og:site_name", content="[insert site name]")
+
+    // Facebook meta data for the recommend iframe;
+    //- if the og:url content is fake - Facebook will not work;
+    meta(property="og:title", content="[insert page title]")
+    meta(property="og:url", content="[insert page url]")
+    meta(property="fb:app_id", content="[insert app id]")
+
+link(rel="shortcut icon", href="../img/favicon.ico")
+link(rel="stylesheet", href="../css/main.css")
+
+// html5 shiv for older IEs, and a fallback;
+//if lt IE 9
+    script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+    script
+        window.html5 || document.write('<script src="../js/libs/html5.js"><\/script>');

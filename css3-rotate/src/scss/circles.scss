@@ -1,0 +1,136 @@
+div.circle-container {
+    position: relative;
+    width: 644px;
+    height: 644px;
+    border: 1px solid blue;
+    @include border-radius(322px);
+    margin: 30px;
+
+    div.circle {
+        text-indent: -9999px;
+        display: block;
+        position: absolute;
+        border: 1px solid red;
+
+        a {
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            @include border-radius(8px);
+            background: #000;
+        }
+
+        &.n,
+        &.s,
+        &.e,
+        &.w,
+        &.ne,
+        &.nw,
+        &.se,
+        &.sw {
+            width: 320px;
+            height: 320px;
+            @include border-radius(160px);
+            z-index: 99;
+        }
+        &.n {
+            top: 0;
+            left: 160px;
+
+            a {
+                top: 0;
+                left: 50%;
+                margin: -8px 0 0 -8px;
+            }
+        }
+        &.s {
+            bottom: 0;
+            left: 160px;
+
+            a {
+                bottom: 0;
+                left: 50%;
+                margin: 0 0 -8px -8px;
+            }
+        }
+        &.e {
+            top: 160px;
+            right: 0;
+
+            a {
+                top: 50%;
+                left: 0;
+                margin: -8px 0 0 -8px;
+            }
+        }
+        &.w {
+            top: 160px;
+            left: 0;
+
+            a {
+                top: 50%;
+                right: 0;
+                margin: -8px -8px 0 0;
+            }
+        }
+        &.ne {
+            top: 48px;
+            right: 48px;
+
+            a {
+                top: 38px;
+                right: 264px;
+            }
+        }
+        &.nw {
+            top: 48px;
+            left: 48px;
+
+            a {
+                top: 38px;
+                left: 264px;
+            }
+        }
+        &.se {
+            bottom: 48px;
+            right: 48px;
+
+            a {
+                bottom: 38px;
+                right: 264px;
+            }
+        }
+        &.sw {
+            bottom: 48px;
+            left: 48px;
+
+            a {
+                bottom: 38px;
+                left: 264px;
+            }
+        }
+    }
+}
+
+div.circle-container {
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(linear);
+    @include animation-duration(16s);
+    @include animation-name(turn-right);
+}
+div.circle {
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(linear);
+    @include animation-duration(4s);
+    @include animation-name(turn-right);
+}
+
+@include keyframes(turn-right) {
+    from {
+        @include transform(rotate(0deg));
+    }
+    to {
+        @include transform(rotate(360deg));
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <title>PT00 Generic HTML</title>
+        <link rel="shortcut icon" href="../img/icons/favicon.ico">
+        <link rel="stylesheet" href="../css/style.min.css">
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!-- jQuery CDN, and a fallback;-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>');</script>
+        <script>
+            function init ($html) {
+                jQuery("body")
+                    .append($html)
+                    .queue(function () {
+                        jQuery.ajax({
+                            type: "GET",
+                            url: "../js/plugins.min.js",
+                            dataType: "script",
+                            success: function () {
+                                jQuery.ajax({
+                                    type: "GET",
+                                    url: "../js/script.min.js",
+                                    dataType: "script",
+                                    success: function () {
+                                        // there are scripts that depend on window load and not just dom ready;
+                                        jQuery(window).load();
+                                    }
+                                });
+                            }
+                        });
+                    });
+            }
+        </script>
+    </head>
+    <body style="background: #fff;">
+    </body>
+</html>

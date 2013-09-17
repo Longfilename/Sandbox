@@ -1,0 +1,11 @@
+{
+    "site": [
+        "../readme.md"
+    ],
+    "components": [
+        "../src/components/-src/config.json"
+    ],
+    "pages": [
+        "../src/pages/-src/config.json"
+    ]
+}
