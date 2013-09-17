@@ -1,140 +1,206 @@
 * {
-    @include box-sizing(border-box);
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #333;
+    padding: 50px;
+    font: 14px/1.4 sans-serif;
 }
 
+// control panel;
+div.controls {
+    position: absolute;
+    top: 200px;
+    left: 740px;
+    background: rgba(255, 255, 255, 0.5);
+    width: 200px;
+    padding: 10px;
+
+    h1 {
+        margin-top: 1em;
+        font-size: 14px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    label {
+        display: block;
+    }
+}
+
+
+// circle styles;
+// variables used to control the sizes of each element;
+$containerSize: 640px;           // outer container size (how big to make it all);
+$circleSize: $containerSize / 2; // inner circle size;
+$dotSize: $circleSize / 20;      // "rotating" dot size;
+$dotMargin: -($dotSize / 2);     // offset of the dot (so it's centered on the circle's border);
+// container for all the circles;
 div.circle-container {
     position: relative;
-    width: 640px;
-    height: 640px;
-    border: 1px solid blue;
-    @include border-radius(100%);
-    margin: 30px auto;
+    width: $containerSize;
+    height: $containerSize;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    @include border-radius($containerSize / 2);
+    @include box-sizing(border-box);
 
+    // each circle inside the container (these have the dots on them);
     div.circle {
-        text-indent: -9999px;
-        display: block;
         position: absolute;
-        border: 1px solid red;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        width: $circleSize;
+        height: $circleSize;
+        @include border-radius(100%);
+        @include box-sizing(border-box);
+        @include transition(opacity .3s);
+        opacity: 1;
 
+        // the "dot" inside each circle;
         a {
             display: block;
             position: absolute;
-            width: 5%;
-            height: 5%;
+            width: $dotSize;
+            height: $dotSize;
             @include border-radius(100%);
-            background: #000;
+            background: #fff;
+            z-index: 2;
         }
 
-        &.n,
-        &.s,
-        &.e,
-        &.w,
-        &.ne,
-        &.nw,
-        &.se,
-        &.sw {
-            width: 50%;
-            height: 50%;
-            @include border-radius(100%);
-            z-index: 99;
+        // "hidden" version (set via the control panel);
+        &.hidden {
+            // can't use display: none because then the animation would be interrupted;
+            opacity: 0;
         }
-        &.n {
+
+        // north/top circle;
+        &.north {
             top: 0;
             left: 25%;
 
             a {
                 top: 0;
                 left: 50%;
-                margin: -8px 0 0 -8px;
+                margin-top: $dotMargin;
+                margin-left: $dotMargin;
             }
         }
-        &.s {
+        // south/bottom circle;
+        &.south {
             bottom: 0;
             left: 25%;
 
             a {
                 bottom: 0;
                 left: 50%;
-                margin: 0 0 -8px -8px;
+                margin-bottom: $dotMargin;
+                margin-left: $dotMargin;
             }
         }
-        &.e {
+        // east/right circle;
+        &.east {
             top: 25%;
             right: 0;
 
             a {
                 top: 50%;
                 left: 0;
-                margin: -8px 0 0 -8px;
+                margin-top: $dotMargin;
+                margin-left: $dotMargin;
             }
         }
-        &.w {
+        // west/left circle
+        &.west {
             top: 25%;
             left: 0;
 
             a {
                 top: 50%;
                 right: 0;
-                margin: -8px -8px 0 0;
+                margin-top: $dotMargin;
+                margin-right: $dotMargin;
             }
         }
-        &.ne {
-            top: 7.4%;
-            right: 7.4%;
+        // northeast/top left circle
+        &.northeast {
+            top: 7.2%;
+            right: 7.2%;
 
             a {
                 top: 11.85%;
-                right: 82.5%;
+                right: 83.25%;
             }
         }
-        &.nw {
-            top: 7.4%;
-            left: 7.4%;
+        // northwest/top left circle;
+        &.northwest {
+            top: 7.2%;
+            left: 7.2%;
 
             a {
                 top: 11.85%;
-                left: 82.5%;
+                left: 83.25%;
             }
         }
-        &.se {
-            bottom: 7.4%;
-            right: 7.4%;
+        // southeast/bottom right circle;
+        &.southeast {
+            bottom: 7.2%;
+            right: 7.2%;
 
             a {
                 bottom: 11.85%;
-                right: 82.5%;
+                right: 83.25%;
             }
         }
-        &.sw {
-            bottom: 7.4%;
-            left: 7.4%;
+        // southwest/bottom left circle;
+        &.southwest {
+            bottom: 7.2%;
+            left: 7.2%;
 
             a {
                 bottom: 11.85%;
-                left: 82.5%;
+                left: 83.25%;
             }
         }
     }
 }
 
-div.circle-conxtainer {
-    @include animation-iteration-count(infinite);
-    @include animation-timing-function(linear);
-    @include animation-duration(16s);
-    @include animation-name(turn-right);
+// flag to enable circle animation;
+// set in the control panel;
+body.animate-container {
+    // animation properties for the container;
+    div.circle-container {
+        @include animation-iteration-count(infinite);
+        @include animation-timing-function(linear);
+        @include animation-duration(8s);
+        @include animation-name(counter-clockwise);
+    }
 }
-div.circle {
-    @include animation-iteration-count(infinite);
-    @include animation-timing-function(linear);
-    @include animation-duration(4s);
-    @include animation-name(turn-right);
+body.animate-circles {
+    // animation properties for each circle;
+    div.circle {
+        @include animation-iteration-count(infinite);
+        @include animation-timing-function(linear);
+        @include animation-duration(4s);
+        @include animation-name(clockwise);
+    }
 }
 
-@include keyframes(turn-right) {
+// animation keyframes (one for the container, one for the inner circles);
+@include keyframes(clockwise) {
     from {
         @include transform(rotate(0deg));
     }
     to {
         @include transform(rotate(360deg));
+    }
+}
+@include keyframes(counter-clockwise) {
+    from {
+        @include transform(rotate(360deg));
+    }
+    to {
+        @include transform(rotate(0deg));
     }
 }

@@ -5,12 +5,6 @@
 
 @import "print"; // print styles;
 
-// utility classes;
-// hide anything;
-.hidden {
-    display: none !important;
-}
-
 // Windows 8 snap fix;
 // To get IE10 in snap mode does not respect the values set in the META tags;
 @-ms-viewport {

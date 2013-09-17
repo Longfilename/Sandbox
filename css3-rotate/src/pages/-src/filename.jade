@@ -5,22 +5,55 @@ doctype 5
 html.no-js(lang="en") 
     head
         include ../../includes/head
-    body
+    body.animate-container.animate-circles
+        div.controls
+            h1 Show/Hide Circles
+            label
+                input(type="checkbox", data-target="div.north", checked)
+                |  North
+            label
+                input(type="checkbox", data-target="div.northeast", checked)
+                |  Northeast
+            label
+                input(type="checkbox", data-target="div.east", checked)
+                |  East
+            label
+                input(type="checkbox", data-target="div.southeast", checked)
+                |  Southeast
+            label
+                input(type="checkbox", data-target="div.south", checked)
+                |  South
+            label
+                input(type="checkbox", data-target="div.southwest", checked)
+                |  Southwest
+            label
+                input(type="checkbox", data-target="div.west", checked)
+                |  West
+            label
+                input(type="checkbox", data-target="div.northwest", checked)
+                |  Northwest
+            h1 Start/Stop Rotation
+            label
+                input(type="checkbox", data-class="animate-container", checked)
+                |  Container
+            label
+                input(type="checkbox", data-class="animate-circles", checked)
+                |  Circles
         div.circle-container
-            div.circle.n
+            div.circle.north
                 a
-            div.circle.e
+            div.circle.east
                 a
-            div.circle.s
+            div.circle.south
                 a
-            div.circle.w
+            div.circle.west
                 a
-            div.circle.ne
+            div.circle.northeast
                 a
-            div.circle.nw
+            div.circle.northwest
                 a
-            div.circle.se
+            div.circle.southeast
                 a
-            div.circle.sw
+            div.circle.southwest
                 a
         include ../../includes/foot

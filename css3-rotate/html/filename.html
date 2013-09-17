@@ -12,16 +12,50 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script>window.html5 || document.write('<script src="../js/libs/html5.js"><\/script>');</script><![endif]-->
   </head>
-  <body>
+  <body class="animate-container animate-circles">
+    <div class="controls">
+      <h1>Show/Hide Circles</h1>
+      <label>
+        <input type="checkbox" data-target="div.north" checked> North
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.northeast" checked> Northeast
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.east" checked> East
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.southeast" checked> Southeast
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.south" checked> South
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.southwest" checked> Southwest
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.west" checked> West
+      </label>
+      <label>
+        <input type="checkbox" data-target="div.northwest" checked> Northwest
+      </label>
+      <h1>Start/Stop Rotation</h1>
+      <label>
+        <input type="checkbox" data-class="animate-container" checked> Container
+      </label>
+      <label>
+        <input type="checkbox" data-class="animate-circles" checked> Circles
+      </label>
+    </div>
     <div class="circle-container">
-      <div class="circle n"><a></a></div>
-      <div class="circle e"><a></a></div>
-      <div class="circle s"><a></a></div>
-      <div class="circle w"><a></a></div>
-      <div class="circle ne"><a></a></div>
-      <div class="circle nw"><a></a></div>
-      <div class="circle se"><a></a></div>
-      <div class="circle sw"><a></a></div>
+      <div class="circle north"><a></a></div>
+      <div class="circle east"><a></a></div>
+      <div class="circle south"><a></a></div>
+      <div class="circle west"><a></a></div>
+      <div class="circle northeast"><a></a></div>
+      <div class="circle northwest"><a></a></div>
+      <div class="circle southeast"><a></a></div>
+      <div class="circle southwest"><a></a></div>
     </div>
     <!-- jQuery CDN, and a fallback;-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
