@@ -11,17 +11,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/src\/circles.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 1,
-      "inputAbbreviatedPath" : "\/src\/circles.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/circles.js",
-      "fileType" : 64
-    },
     "\/circles.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -30,7 +19,7 @@
       "inputAbbreviatedPath" : "\/circles.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/script-ck.js",
+      "outputAbbreviatedPath" : "\/js\/circles-ck.js",
       "fileType" : 64
     },
     "\/config.rb" : {

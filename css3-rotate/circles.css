@@ -1,17 +1,12 @@
-/* line 5, src/circles.scss */
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
-/* line 9, src/circles.scss */
 body {
   background: #333;
   padding: 50px;
-  font: 14px/1.4 sans-serif;
-}
+  font: 14px/1.4 sans-serif; }
 
-/* line 19, src/circles.scss */
 div.controls {
   position: absolute;
   top: 200px;
@@ -23,27 +18,19 @@ div.controls {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 28, src/circles.scss */
-div.controls h1 {
-  margin-top: 1em;
-  font-size: 14px;
-}
-/* line 32, src/circles.scss */
-div.controls h1:first-child {
-  margin-top: 0;
-}
-/* line 37, src/circles.scss */
-div.controls label {
-  display: block;
-  cursor: pointer;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  padding-top: 3px;
-  margin-top: 3px;
-}
+  border-radius: 10px; }
+  div.controls h1 {
+    margin-top: 1em;
+    font-size: 14px; }
+    div.controls h1:first-child {
+      margin-top: 0; }
+  div.controls label {
+    display: block;
+    cursor: pointer;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding-top: 3px;
+    margin-top: 3px; }
 
-/* line 53, src/circles.scss */
 div.circle-container {
   position: relative;
   width: 640px;
@@ -56,139 +43,99 @@ div.circle-container {
   border-radius: 320px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* line 62, src/circles.scss */
-div.circle-container div.circle {
-  position: absolute;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  width: 320px;
-  height: 320px;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  opacity: 1;
-}
-/* line 73, src/circles.scss */
-div.circle-container div.circle a {
-  display: block;
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
-  background: #fff;
-  z-index: 2;
-  -webkit-box-shadow: 0 0 10px #333333;
-  -moz-box-shadow: 0 0 10px #333333;
-  box-shadow: 0 0 10px #333333;
-}
-/* line 85, src/circles.scss */
-div.circle-container div.circle.hidden {
-  opacity: 0;
-}
-/* line 91, src/circles.scss */
-div.circle-container div.circle.north {
-  top: 0;
-  left: 25%;
-}
-/* line 95, src/circles.scss */
-div.circle-container div.circle.north a {
-  top: 0;
-  left: 50%;
-  margin-top: -8px;
-  margin-left: -8px;
-}
-/* line 103, src/circles.scss */
-div.circle-container div.circle.south {
-  bottom: 0;
-  left: 25%;
-}
-/* line 107, src/circles.scss */
-div.circle-container div.circle.south a {
-  bottom: 0;
-  left: 50%;
-  margin-bottom: -8px;
-  margin-left: -8px;
-}
-/* line 115, src/circles.scss */
-div.circle-container div.circle.east {
-  top: 25%;
-  right: 0;
-}
-/* line 119, src/circles.scss */
-div.circle-container div.circle.east a {
-  top: 50%;
-  left: 0;
-  margin-top: -8px;
-  margin-left: -8px;
-}
-/* line 127, src/circles.scss */
-div.circle-container div.circle.west {
-  top: 25%;
-  left: 0;
-}
-/* line 131, src/circles.scss */
-div.circle-container div.circle.west a {
-  top: 50%;
-  right: 0;
-  margin-top: -8px;
-  margin-right: -8px;
-}
-/* line 139, src/circles.scss */
-div.circle-container div.circle.northeast {
-  top: 7.2%;
-  right: 7.2%;
-}
-/* line 143, src/circles.scss */
-div.circle-container div.circle.northeast a {
-  top: 11.85%;
-  right: 83.25%;
-}
-/* line 149, src/circles.scss */
-div.circle-container div.circle.northwest {
-  top: 7.2%;
-  left: 7.2%;
-}
-/* line 153, src/circles.scss */
-div.circle-container div.circle.northwest a {
-  top: 11.85%;
-  left: 83.25%;
-}
-/* line 159, src/circles.scss */
-div.circle-container div.circle.southeast {
-  bottom: 7.2%;
-  right: 7.2%;
-}
-/* line 163, src/circles.scss */
-div.circle-container div.circle.southeast a {
-  bottom: 11.85%;
-  right: 83.25%;
-}
-/* line 169, src/circles.scss */
-div.circle-container div.circle.southwest {
-  bottom: 7.2%;
-  left: 7.2%;
-}
-/* line 173, src/circles.scss */
-div.circle-container div.circle.southwest a {
-  bottom: 11.85%;
-  left: 83.25%;
-}
+  box-sizing: border-box; }
+  div.circle-container div.circle {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 320px;
+    height: 320px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 1; }
+    div.circle-container div.circle a {
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      -ms-border-radius: 100%;
+      -o-border-radius: 100%;
+      border-radius: 100%;
+      background: #fff;
+      z-index: 2;
+      -webkit-box-shadow: 0 0 10px #333333;
+      -moz-box-shadow: 0 0 10px #333333;
+      box-shadow: 0 0 10px #333333; }
+    div.circle-container div.circle.hidden {
+      opacity: 0; }
+    div.circle-container div.circle.north {
+      top: 0;
+      left: 25%; }
+      div.circle-container div.circle.north a {
+        top: 0;
+        left: 50%;
+        margin-top: -8px;
+        margin-left: -8px; }
+    div.circle-container div.circle.south {
+      bottom: 0;
+      left: 25%; }
+      div.circle-container div.circle.south a {
+        bottom: 0;
+        left: 50%;
+        margin-bottom: -8px;
+        margin-left: -8px; }
+    div.circle-container div.circle.east {
+      top: 25%;
+      right: 0; }
+      div.circle-container div.circle.east a {
+        top: 50%;
+        left: 0;
+        margin-top: -8px;
+        margin-left: -8px; }
+    div.circle-container div.circle.west {
+      top: 25%;
+      left: 0; }
+      div.circle-container div.circle.west a {
+        top: 50%;
+        right: 0;
+        margin-top: -8px;
+        margin-right: -8px; }
+    div.circle-container div.circle.northeast {
+      top: 7.2%;
+      right: 7.2%; }
+      div.circle-container div.circle.northeast a {
+        top: 11.85%;
+        right: 83.25%; }
+    div.circle-container div.circle.northwest {
+      top: 7.2%;
+      left: 7.2%; }
+      div.circle-container div.circle.northwest a {
+        top: 11.85%;
+        left: 83.25%; }
+    div.circle-container div.circle.southeast {
+      bottom: 7.2%;
+      right: 7.2%; }
+      div.circle-container div.circle.southeast a {
+        bottom: 11.85%;
+        right: 83.25%; }
+    div.circle-container div.circle.southwest {
+      bottom: 7.2%;
+      left: 7.2%; }
+      div.circle-container div.circle.southwest a {
+        bottom: 11.85%;
+        left: 83.25%; }
 
-/* line 185, src/circles.scss */
 body.animate-container div.circle-container {
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
@@ -209,10 +156,8 @@ body.animate-container div.circle-container {
   -moz-animation-name: counter-clockwise;
   -ms-animation-name: counter-clockwise;
   -o-animation-name: counter-clockwise;
-  animation-name: counter-clockwise;
-}
+  animation-name: counter-clockwise; }
 
-/* line 194, src/circles.scss */
 body.animate-circles div.circle {
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
@@ -233,141 +178,90 @@ body.animate-circles div.circle {
   -moz-animation-name: clockwise;
   -ms-animation-name: clockwise;
   -o-animation-name: clockwise;
-  animation-name: clockwise;
-}
+  animation-name: clockwise; }
 
 @-moz-keyframes clockwise {
-  /* line 204, src/circles.scss */
   from {
     -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
 
-  /* line 207, src/circles.scss */
   to {
     -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 @-webkit-keyframes clockwise {
-  /* line 204, src/circles.scss */
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
 
-  /* line 207, src/circles.scss */
   to {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 @-o-keyframes clockwise {
-  /* line 204, src/circles.scss */
   from {
     -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
 
-  /* line 207, src/circles.scss */
   to {
     -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 @-ms-keyframes clockwise {
-  /* line 204, src/circles.scss */
   from {
     -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
 
-  /* line 207, src/circles.scss */
   to {
     -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 @keyframes clockwise {
-  /* line 204, src/circles.scss */
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
 
-  /* line 207, src/circles.scss */
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 @-moz-keyframes counter-clockwise {
-  /* line 212, src/circles.scss */
   from {
     -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+    transform: rotate(360deg); }
 
-  /* line 215, src/circles.scss */
   to {
     -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
+    transform: rotate(0deg); } }
 
 @-webkit-keyframes counter-clockwise {
-  /* line 212, src/circles.scss */
   from {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+    transform: rotate(360deg); }
 
-  /* line 215, src/circles.scss */
   to {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
+    transform: rotate(0deg); } }
 
 @-o-keyframes counter-clockwise {
-  /* line 212, src/circles.scss */
   from {
     -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+    transform: rotate(360deg); }
 
-  /* line 215, src/circles.scss */
   to {
     -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
+    transform: rotate(0deg); } }
 
 @-ms-keyframes counter-clockwise {
-  /* line 212, src/circles.scss */
   from {
     -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+    transform: rotate(360deg); }
 
-  /* line 215, src/circles.scss */
   to {
     -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
+    transform: rotate(0deg); } }
 
 @keyframes counter-clockwise {
-  /* line 212, src/circles.scss */
   from {
-    transform: rotate(360deg);
-  }
+    transform: rotate(360deg); }
 
-  /* line 215, src/circles.scss */
   to {
-    transform: rotate(0deg);
-  }
-}
+    transform: rotate(0deg); } }
