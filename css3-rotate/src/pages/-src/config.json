@@ -1,8 +1,0 @@
-[
-    {
-        "name": "[insert page title]",
-        "html": "../../../html/filename.html",
-        "jade": "filename.jade",
-        "readme": "readme.md"
-    }
-]

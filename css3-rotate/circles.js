@@ -1,0 +1,2 @@
+/*jslint devel: true, browser: true, indent: 4 *//*global jQuery:true */// control panel hide/show circles;
+jQuery(function(e){var t="hidden";e("input:checkbox[data-target]").each(function(){var n=e(this),r=n.data("target"),i=e(r);n.on("click",function(){i.toggleClass(t)})})});jQuery(function(e){e("input:checkbox[data-class]").each(function(){var t=e(this),n=t.data("class");t.on("click",function(){e("body").toggleClass(n)})})});

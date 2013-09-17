@@ -4,13 +4,13 @@ require "animation"
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "css"
-sass_dir = "src/scss"
+css_dir = "/"
+sass_dir = "src"
 images_dir = "img"
-javascripts_dir = "js"
+javascripts_dir = "/"
 fonts_dir = "fonts"
 
-output_style = :compressed
+output_style = :expanded
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
