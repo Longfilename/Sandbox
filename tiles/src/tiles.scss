@@ -1,0 +1,109 @@
+@import "compass";   // mixin library;
+@import "animation"; // mixin library (for animation styles);
+
+// quick and dirty css reset;
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #333;
+    padding: 50px;
+    font: 14px/1.4 sans-serif;
+}
+
+div.container {
+    width: 640px;
+    position: relative;
+    margin: 0 auto;
+
+    div.tile {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        overflow: hidden;
+    }
+}
+
+
+// animation keyframes;
+@include keyframes(pulse-one) {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+@include keyframes(pulse-two) {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+@include keyframes(pulse-three) {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0.75;
+    }
+    35% {
+        opacity: 0.52;
+    }
+    65% {
+        opacity: 0.12;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+div.container:last-child {
+    div.tile:before {
+        content: "";
+        position: absolute;
+        width: 130%;
+        height: 45%;
+        top: -15%;
+        right: -5%;
+        @include background-image(linear-gradient(left top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)));
+        @include transform(rotate(10deg));
+        @include border-bottom-left-radius(200px 20px);
+        @include border-bottom-right-radius(200px 10px);
+        @include border-top-right-radius(5px 100px);
+    }
+}
+
+div.container:first-child {
+    div.tile {
+        background: #fff;
+
+        @include animation-iteration-count(infinite);
+        @include animation-timing-function(linear);
+        @include animation-duration(15s);
+        @include animation-name(pulse-one);
+        
+        &:nth-child(5n-1) {
+            @include animation-duration(17s);
+            @include animation-name(pulse-two);
+        }
+        
+        &:nth-child(2n+1) {
+            @include animation-duration(13s);
+            @include animation-name(pulse-three);
+        }
+    }
+}
+
