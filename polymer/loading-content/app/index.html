@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="generator" content="Polymer Starter Kit" />
+        <title>Polymer Starter Kit</title>
+        
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <style>
+            body {
+                margin: 0;
+                padding: 1em;
+            }
+            div.container {
+                width: 350px;
+                float: left;
+                margin-right: 1em;
+            }
+        </style>
+        <!-- endbuild-->
+        
+        <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+        <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+        <!-- endbuild -->
+        
+        <!-- will be replaced with elements/elements.vulcanized.html -->
+        <link rel="import" href="elements/elements.html">
+        <!-- endreplace-->
+    </head>
+    <body>
+        <div class="container">
+            <my-loader-ajax json="./my-loader-ajax.json" delay="1500"></my-loader-ajax>
+        </div>
+        <div class="container">
+            <my-loader-attributes
+                img-src="http://channel.nationalgeographic.com/exposure/content/photo/photo/2073303_got-the-gold_jfxeaqbh63vorhnrwcs4oomcjqoxpy7q62c4u66siw3t6qwph3oq_1200x1200.jpg"
+                img-alt-text="Photo of Spanish Gold"
+                category="Nat Geo News"
+                h1="Spanish Shipwreck Holds Millions"
+                description="Divers found gold in part of a Spanish fleet that was obliterated during a hurricane 300 years ago."
+                href="#"
+                link-text="Read More"></my-loader-attributes>
+        </div>
+        <div class="container">
+            <my-loader-inline>
+                <img src="http://channel.nationalgeographic.com//exposure/content/photo/photo/2098972_spanish-shipwreck-holds-million-dollar-treasure_v7ue3ksgvxeiuev7ok6nru2pfueatuw6lrlcsphco3flmkbrawuq_1200x1200.jpg" alt="Photo of Spanish Gold">
+                <span>Nat Geo News</span>
+                <h1>Spanish Shipwreck Holds Millions</h1>
+                <p>Divers found gold in part of a Spanish fleet that was obliterated during a hurricane 300 years ago.</p>
+                <a href="#">Read More</a>
+            </my-loader-inline>
+        </div>
+        
+        <!-- build:js scripts/app.js -->
+        <script src="scripts/app.js"></script>
+        <!-- endbuild-->
+    </body>
+</html>

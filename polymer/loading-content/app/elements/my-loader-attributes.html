@@ -1,0 +1,108 @@
+<dom-module id="my-loader-attributes">
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    
+    <style>
+        :host {
+            background: #eee;
+            display: block;
+            border: 1px solid #ccc;
+            padding: 1em;
+            min-height: 200px;
+            position: relative;
+        }
+        div.img {
+            background: #ccc;
+            display: block;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            transition: opacity 1.0s ease-out;
+        }
+        
+        h1 {
+            min-height: 58px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: #000;
+        }
+        p {
+            min-height: 54px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: #000;
+        }
+        p.span {
+            min-height: 18px;
+        }
+        a {
+            height: 18px;
+            display: inline-block;
+            min-width: 50px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: blue;
+        }
+
+        /* styles to show before the image has loaded; */
+        article[unresolved] img {
+            opacity: 0;
+        }
+        article[unresolved] h1 {
+            background: #ccc;
+            color: #ccc;
+        }
+        article[unresolved] p {
+            background: #ccc;
+            color: #ccc;
+        }
+        article[unresolved] a {
+            background: #ccc;
+            color: #ccc;
+        }
+    </style>
+    
+    <template>
+        <article unresolved id="article">
+            <div class="img"><img id="img" alt="{{imgAltText}}"></div>
+            <p class="span">{{category}}</p>
+            <h1>{{h1}}</h1>
+            <p>{{description}}</p>
+            <a href="{{href}}">{{linkText}}</a>
+        </article>
+    </template>
+
+    <script>
+        Polymer({
+            properties: {
+                imgSrc: String,
+                imgAltText: String,
+                category: String,
+                h1: String,
+                description: String,
+                href: String,
+                linkText: String
+            },
+            ready: function () {
+                var img = this.$.img;
+                
+                // add a load event to the image;
+                // once the image has loaded, all the content will be visible;
+                img.addEventListener("load", function () {
+                    this.$.article.removeAttribute("unresolved");
+                }.bind(this));
+                
+                // now that the load event has been added, change the SRC to prompt the image to load;
+                // if we had the image src inline, it might have loaded by now, and we'd miss our event;
+                img.src = this.imgSrc;
+            }
+        });
+    </script>
+</dom-module>

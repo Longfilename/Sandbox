@@ -1,0 +1,117 @@
+<dom-module id="my-loader-ajax">
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="/bower_components/iron-image/iron-image.html">
+    
+    <style>
+        :host {
+            background: #eee;
+            display: block;
+            border: 1px solid #ccc;
+            padding: 1em;
+            min-height: 200px;
+            position: relative;
+        }
+        iron-image {
+            background: #ccc;
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: 316px;
+        }
+        #image::shadow img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+        }
+        h1 {
+            min-height: 58px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: #000;
+        }
+        p {
+            min-height: 54px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: #000;
+        }
+        p.span {
+            min-height: 18px;
+        }
+        a {
+            height: 18px;
+            display: inline-block;
+            min-width: 50px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: blue;
+        }
+        
+        /* styles to show before the image has loaded; */
+        article[unresolved] iron-image {
+            background: #ccc;
+        }
+        article[unresolved] h1 {
+            background: #ccc;
+            color: #ccc;
+        }
+        article[unresolved] p {
+            background: #ccc;
+            color: #ccc;
+        }
+        article[unresolved] a {
+            background: #ccc;
+            color: #ccc;
+        }
+    </style>
+    
+    <template>
+        <iron-ajax
+            id="ajax"
+            url="{{json}}"
+            params='{"one": 1, "two": 2}'
+            handle-as="json"
+            on-response="ajaxResponse"
+            last-response="{{content}}"
+            debounce-duration="{{delay}}"></iron-ajax>
+        
+        <article unresolved id="article">
+            <iron-image
+                id="image"
+                src="{{content.img-src}}"
+                loaded="{{imgLoaded}}"></iron-image>
+            <p class="span">{{content.category}}</p>
+            <h1>{{content.h1}}</h1>
+            <p>{{content.description}}</p>
+            <a href="{{content.href}}">{{content.link-text}}</a>
+        </article>
+    </template>
+
+    <script>
+        Polymer({
+            properties: {
+                json: String,
+                delay: Number
+            },
+            // the element is ready, but the content isn't;
+            ready: function () {
+                // so set content to nothing;
+                this.content = {};
+                
+                // then init an Ajax call to get the content;
+                window.setTimeout(function () {
+                    this.$.ajax.generateRequest();
+                }.bind(this), this.delay);
+            },
+            // once the Ajax call is resolved;
+            ajaxResponse: function (request) {
+                // removed the unresolved attribute (so the content will be shown);
+                this.$.article.removeAttribute("unresolved");
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,122 @@
+<dom-module id="my-loader-inline">
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    
+    <style>
+        :host {
+            background: #eee;
+            display: block;
+            border: 1px solid #ccc;
+            padding: 1em;
+            min-height: 200px;
+            position: relative;
+        }
+        div.img {
+            background: #ccc;
+            display: block;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            transition: opacity 1.0s ease-out;
+        }
+        
+        h1 {
+            min-height: 58px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: #000;
+        }
+        p {
+            min-height: 54px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: #000;
+        }
+        p.span {
+            min-height: 18px;
+        }
+        a {
+            height: 18px;
+            display: inline-block;
+            min-width: 50px;
+            transition: background-color 0.5s ease-in,
+                        color 1.0s ease-out;
+            background-color: transparent;
+            color: blue;
+        }
+        
+        /* styles to show before the image has loaded; */
+        section[unresolved] img {
+            opacity: 0;
+        }
+        section[unresolved] h1 {
+            background: #ccc;
+            color: #ccc;
+        }
+        section[unresolved] p {
+            background: #ccc;
+            color: #ccc;
+        }
+        section[unresolved] a {
+            background: #ccc;
+            color: #ccc;
+        }
+    </style>
+    
+    <template>
+        <!-- temp holding of the content, this will be parsed, then removed; -->
+        <div id="content"><content></content></div>
+        <!-- this is NOT temp content; -->
+        <!-- once the HTML in CONTENT is parsed, we'll have our properties below; -->
+        <article id="article">
+            <div class="img"><img id="img" alt="{{img.alt}}"></div>
+            <p class="span">{{span.innerHTML}}</p>
+            <h1>{{h1.innerHTML}}</h1>
+            <p>{{p.innerHTML}}</p>
+            <a href="{{a.href}}">{{a.text}}</a>
+        </article>
+    </template>
+
+    <script>
+        "use strict";
+        Polymer({
+            // before we insert the HTML into the page, transform it;
+            ready: function () {
+                let content = this.$.content;
+                
+                // transform the "source" HTML into properties;
+                // with properties, we can insert the content into whatever tags we want (and in any order);
+                Object.getOwnPropertyNames(content.children).forEach(function (val, idx, array) {
+                    let obj = content.children[idx];
+                    
+                    // save the content as this.img = { alt: alt, src: src }
+                    this[obj.tagName.toLowerCase()] = obj;
+                }.bind(this));
+                
+                // remove this block (the "source" HTML) before we insert this content into the DOM;
+                content.remove();
+            },
+            // now that we have the HTML we want inserted into the page;
+            // dont show the content until the image has downloaded;
+            attached: function () {
+                let img = this.$.img;
+                
+                // add a load event to the image;
+                // once the image has loaded, all the content will be visible;
+                img.addEventListener("load", function () {
+                    this.$.article.removeAttribute("unresolved");
+                }.bind(this));
+                
+                // now that the load event has been added, change the SRC to prompt the image to load;
+                // if we had the image src inline, it might have loaded by now, and we'd miss our event;
+                img.src = this.img.src;
+            }
+        });
+    </script>
+</dom-module>
