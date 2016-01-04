@@ -1,6 +1,6 @@
 <dom-module id="my-loader-attributes">
-    <link rel="import" href="/bower_components/polymer/polymer.html">
-    
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
     <style>
         :host {
             background: #eee;
@@ -22,7 +22,7 @@
             width: 100%;
             transition: opacity 1.0s ease-out;
         }
-        
+
         h1 {
             min-height: 58px;
             transition: background-color 0.5s ease-in,
@@ -67,7 +67,7 @@
             color: #ccc;
         }
     </style>
-    
+
     <template>
         <article unresolved id="article">
             <div class="img"><img id="img" alt="{{imgAltText}}"></div>
@@ -91,13 +91,13 @@
             },
             ready: function () {
                 var img = this.$.img;
-                
+
                 // add a load event to the image;
                 // once the image has loaded, all the content will be visible;
                 img.addEventListener("load", function () {
                     this.$.article.removeAttribute("unresolved");
                 }.bind(this));
-                
+
                 // now that the load event has been added, change the SRC to prompt the image to load;
                 // if we had the image src inline, it might have loaded by now, and we'd miss our event;
                 img.src = this.imgSrc;

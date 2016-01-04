@@ -1,8 +1,8 @@
 <dom-module id="my-loader-ajax">
-    <link rel="import" href="/bower_components/polymer/polymer.html">
-    <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
-    <link rel="import" href="/bower_components/iron-image/iron-image.html">
-    
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="../bower_components/iron-image/iron-image.html">
+
     <style>
         :host {
             background: #eee;
@@ -50,7 +50,7 @@
             background-color: transparent;
             color: blue;
         }
-        
+
         /* styles to show before the image has loaded; */
         article[unresolved] iron-image {
             background: #ccc;
@@ -68,7 +68,7 @@
             color: #ccc;
         }
     </style>
-    
+
     <template>
         <iron-ajax
             id="ajax"
@@ -78,7 +78,7 @@
             on-response="ajaxResponse"
             last-response="{{content}}"
             debounce-duration="{{delay}}"></iron-ajax>
-        
+
         <article unresolved id="article">
             <iron-image
                 id="image"
@@ -101,7 +101,7 @@
             ready: function () {
                 // so set content to nothing;
                 this.content = {};
-                
+
                 // then init an Ajax call to get the content;
                 window.setTimeout(function () {
                     this.$.ajax.generateRequest();
