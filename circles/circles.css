@@ -1,11 +1,13 @@
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   background: #333;
   padding: 50px;
-  font: 14px/1.4 sans-serif; }
+  font: 14px/1.4 sans-serif;
+}
 
 div.controls {
   position: absolute;
@@ -14,254 +16,219 @@ div.controls {
   background: rgba(255, 255, 255, 0.5);
   width: 185px;
   padding: 15px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px; }
-  div.controls h1 {
-    margin-top: 1em;
-    font-size: 14px; }
-    div.controls h1:first-child {
-      margin-top: 0; }
-  div.controls label {
-    display: block;
-    cursor: pointer;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-    padding-top: 3px;
-    margin-top: 3px; }
+  border-radius: 10px;
+}
+div.controls h1 {
+  margin-top: 1em;
+  font-size: 14px;
+}
+div.controls h1:first-child {
+  margin-top: 0;
+}
+div.controls label {
+  display: block;
+  cursor: pointer;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 3px;
+  margin-top: 3px;
+}
 
 div.circle-container {
   position: relative;
   width: 640px;
   height: 640px;
   border: 2px solid rgba(255, 255, 255, 0.5);
-  -webkit-border-radius: 320px;
-  -moz-border-radius: 320px;
-  -ms-border-radius: 320px;
-  -o-border-radius: 320px;
   border-radius: 320px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-  div.circle-container div.circle {
-    position: absolute;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    width: 320px;
-    height: 320px;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
-    border-radius: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: opacity 0.3s;
-    -moz-transition: opacity 0.3s;
-    -o-transition: opacity 0.3s;
-    transition: opacity 0.3s;
-    opacity: 1; }
-    div.circle-container div.circle a {
-      display: block;
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      -webkit-border-radius: 100%;
-      -moz-border-radius: 100%;
-      -ms-border-radius: 100%;
-      -o-border-radius: 100%;
-      border-radius: 100%;
-      background: #fff;
-      z-index: 2;
-      -webkit-box-shadow: 0 0 10px #333333;
-      -moz-box-shadow: 0 0 10px #333333;
-      box-shadow: 0 0 10px #333333; }
-    div.circle-container div.circle.hidden {
-      opacity: 0; }
-    div.circle-container div.circle.north {
-      top: 0;
-      left: 25%; }
-      div.circle-container div.circle.north a {
-        top: 0;
-        left: 50%;
-        margin-top: -8px;
-        margin-left: -8px; }
-    div.circle-container div.circle.south {
-      bottom: 0;
-      left: 25%; }
-      div.circle-container div.circle.south a {
-        bottom: 0;
-        left: 50%;
-        margin-bottom: -8px;
-        margin-left: -8px; }
-    div.circle-container div.circle.east {
-      top: 25%;
-      right: 0; }
-      div.circle-container div.circle.east a {
-        top: 50%;
-        left: 0;
-        margin-top: -8px;
-        margin-left: -8px; }
-    div.circle-container div.circle.west {
-      top: 25%;
-      left: 0; }
-      div.circle-container div.circle.west a {
-        top: 50%;
-        right: 0;
-        margin-top: -8px;
-        margin-right: -8px; }
-    div.circle-container div.circle.northeast {
-      top: 7.2%;
-      right: 7.2%; }
-      div.circle-container div.circle.northeast a {
-        top: 11.85%;
-        right: 83.25%; }
-    div.circle-container div.circle.northwest {
-      top: 7.2%;
-      left: 7.2%; }
-      div.circle-container div.circle.northwest a {
-        top: 11.85%;
-        left: 83.25%; }
-    div.circle-container div.circle.southeast {
-      bottom: 7.2%;
-      right: 7.2%; }
-      div.circle-container div.circle.southeast a {
-        bottom: 11.85%;
-        right: 83.25%; }
-    div.circle-container div.circle.southwest {
-      bottom: 7.2%;
-      left: 7.2%; }
-      div.circle-container div.circle.southwest a {
-        bottom: 11.85%;
-        left: 83.25%; }
+  box-sizing: border-box;
+}
+
+div.circle {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  width: 320px;
+  height: 320px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+div.circle a {
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background: #fff;
+  z-index: 2;
+  box-shadow: 0 0 10px #333333;
+}
+div.circle.hidden {
+  opacity: 0;
+}
+div.circle.north {
+  top: 0;
+  left: 25%;
+}
+div.circle.north a {
+  top: 0;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+div.circle.south {
+  bottom: 0;
+  left: 25%;
+}
+div.circle.south a {
+  bottom: 0;
+  left: 50%;
+  margin-bottom: -8px;
+  margin-left: -8px;
+}
+div.circle.east {
+  top: 25%;
+  right: 0;
+}
+div.circle.east a {
+  top: 50%;
+  left: 0;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+div.circle.west {
+  top: 25%;
+  left: 0;
+}
+div.circle.west a {
+  top: 50%;
+  right: 0;
+  margin-top: -8px;
+  margin-right: -8px;
+}
+div.circle.northeast {
+  top: 7.2%;
+  right: 7.2%;
+}
+div.circle.northeast a {
+  top: 11.85%;
+  right: 83.25%;
+}
+div.circle.northwest {
+  top: 7.2%;
+  left: 7.2%;
+}
+div.circle.northwest a {
+  top: 11.85%;
+  left: 83.25%;
+}
+div.circle.southeast {
+  bottom: 7.2%;
+  right: 7.2%;
+}
+div.circle.southeast a {
+  bottom: 11.85%;
+  right: 83.25%;
+}
+div.circle.southwest {
+  bottom: 7.2%;
+  left: 7.2%;
+}
+div.circle.southwest a {
+  bottom: 11.85%;
+  left: 83.25%;
+}
 
 body.animate-container div.circle-container {
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function: linear;
-  -ms-animation-timing-function: linear;
-  -o-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-duration: 8s;
-  -moz-animation-duration: 8s;
-  -ms-animation-duration: 8s;
-  -o-animation-duration: 8s;
   animation-duration: 8s;
-  -webkit-animation-name: counter-clockwise;
-  -moz-animation-name: counter-clockwise;
-  -ms-animation-name: counter-clockwise;
-  -o-animation-name: counter-clockwise;
-  animation-name: counter-clockwise; }
+  animation-name: counter-clockwise;
+}
 
 body.animate-circles div.circle {
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function: linear;
-  -ms-animation-timing-function: linear;
-  -o-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-duration: 4s;
-  -moz-animation-duration: 4s;
-  -ms-animation-duration: 4s;
-  -o-animation-duration: 4s;
   animation-duration: 4s;
-  -webkit-animation-name: clockwise;
-  -moz-animation-name: clockwise;
-  -ms-animation-name: clockwise;
-  -o-animation-name: clockwise;
-  animation-name: clockwise; }
+  animation-name: clockwise;
+}
 
 @-moz-keyframes clockwise {
   from {
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg); }
-
+    transform: rotate(0deg);
+  }
   to {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
+    transform: rotate(360deg);
+  }
+}
 @-webkit-keyframes clockwise {
   from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-
+    transform: rotate(0deg);
+  }
   to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
+    transform: rotate(360deg);
+  }
+}
 @-o-keyframes clockwise {
   from {
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg); }
-
+    transform: rotate(0deg);
+  }
   to {
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
+    transform: rotate(360deg);
+  }
+}
 @-ms-keyframes clockwise {
   from {
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); }
-
+    transform: rotate(0deg);
+  }
   to {
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
+    transform: rotate(360deg);
+  }
+}
 @keyframes clockwise {
   from {
-    transform: rotate(0deg); }
-
+    transform: rotate(0deg);
+  }
   to {
-    transform: rotate(360deg); } }
-
+    transform: rotate(360deg);
+  }
+}
 @-moz-keyframes counter-clockwise {
   from {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg); }
-
+    transform: rotate(360deg);
+  }
   to {
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg); } }
-
+    transform: rotate(0deg);
+  }
+}
 @-webkit-keyframes counter-clockwise {
   from {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); }
-
+    transform: rotate(360deg);
+  }
   to {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); } }
-
+    transform: rotate(0deg);
+  }
+}
 @-o-keyframes counter-clockwise {
   from {
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); }
-
+    transform: rotate(360deg);
+  }
   to {
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg); } }
-
+    transform: rotate(0deg);
+  }
+}
 @-ms-keyframes counter-clockwise {
   from {
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg); }
-
+    transform: rotate(360deg);
+  }
   to {
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); } }
-
+    transform: rotate(0deg);
+  }
+}
 @keyframes counter-clockwise {
   from {
-    transform: rotate(360deg); }
-
+    transform: rotate(360deg);
+  }
   to {
-    transform: rotate(0deg); } }
+    transform: rotate(0deg);
+  }
+}

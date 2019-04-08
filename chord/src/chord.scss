@@ -1,85 +1,70 @@
-@import "compass";   // mixin library;
-@import "animation"; // mixin library (for animation styles);
-
 // quick and dirty css reset;
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
+
 body {
-    background: #333;
-    padding: 50px;
-    font: 14px/1.4 sans-serif;
+  background: #333;
+  padding: 50px;
+  font: 14px/1.4 sans-serif;
 }
 
 div.container {
-    height: 640px;
-    width: 640px;
-    position: relative;
+  height: 640px;
+  width: 640px;
+  margin: 0 auto;
+  position: relative;
 }
+
 div.dot,
 div.chord {
-    background: #444;
-    height: 16px;
-    width: 16px;
-    // make the transition long enough to create some movement;
-    //@include transition(color, 0.5s);
-    position: relative;
-    z-index: 0;
+  background: #444;
+  height: 16px;
+  width: 16px;
+  // make the transition long enough to create some movement;
+  // transition: color, 0.5s;
+  position: relative;
+  z-index: 0;
 
-    &.active {
-        background: #fff;
-        z-index: 1;
-        @include border-radius(100%);
-    }
+  &.active {
+    background: #fff;
+    z-index: 1;
+    border-radius: 100%;
+  }
 }
 
-div.dot,
-div.xchord {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -8px 0 0 -8px;
+div.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+}
+
+div.chord {
+  float: right;
+  height: 15px;
+  width: 15px;
 }
 
 div.chords {
-    @include box-sizing(border-box);
-    background: #444;
-    border: 16px solid #444;
-    border-width: 0 16px;
-    width: 512px;
-    height: 16px;
-    position: absolute;
-    bottom: 156px;
-    right: -57px;
-    @include transform(rotate(-38deg));
-
-    div.chord {
-        float: right;
-        height: 15px;
-        width: 15px;
-    }
+  box-sizing: border-box;
+  background: #444;
+  border: 16px solid #444;
+  border-width: 0 16px;
+  width: 512px;
+  height: 16px;
+  position: absolute;
+  bottom: 156px;
+  right: -57px;
+  transform: rotate(-38deg);
 }
 
 @for $i from 0 through 127 {
-    div.dot:nth-child(#{$i + 1}) {
-        // rotate the obj - move it, then undo the rotation;
-        // @include transform(rotate(#{$i * 2.8125}deg) translate(320px));
-        // rotate the obj - move it;
-        @include transform(rotate(#{$i * 2.8125}deg) translate(320px));
-    }
-    xdiv.dot:nth-child(1),
-    xdiv.dot:nth-child(38) {
-        background: red;
-
-        &.active {
-            background: pink;
-        }
-    }
-}
-
-@for $i from 1 through 32 {
-    div.xchord:nth-child(#{$i}) {
-        @include transform(rotate(#{$i * 3.25 - 2}deg) translate(300px));
-    }
+  div.dot:nth-child(#{$i + 1}) {
+    // rotate the obj - move it, then undo the rotation;
+    // transform: rotate(#{$i * 2.8125}deg) translate(320px);
+    // rotate the obj - move it;
+    transform: rotate(#{$i * 2.8125}deg) translate(320px);
+  }
 }
